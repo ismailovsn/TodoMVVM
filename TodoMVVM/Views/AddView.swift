@@ -12,7 +12,7 @@ struct AddView: View {
     @EnvironmentObject var listViewModel: ListViewModel
     @State private var textFieldText: String = ""
     
-    @State var alertTitle: String = ""
+    @State var alertTitle: String = "Your new todo item must be at least 3 characters long"
     @State var showAlert: Bool = false
     
     var body: some View {
@@ -42,7 +42,7 @@ struct AddView: View {
     
     func textIsAppropriate() -> Bool {
         if textFieldText.count < 3 {
-            alertTitle = "Your new todo item must be at least 3 characters long"
+//            alertTitle = "Your new todo item must be at least 3 characters long"
             showAlert.toggle()
             return false
         }
