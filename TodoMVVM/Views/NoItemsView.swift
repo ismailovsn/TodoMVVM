@@ -10,6 +10,7 @@ import SwiftUI
 struct NoItemsView: View {
     
     @State var animate: Bool = false
+    let SecondAccentColor = Color("SecondAccentColor")
 
     var body: some View {
         ScrollView {
@@ -28,15 +29,17 @@ struct NoItemsView: View {
                         .font(.headline)
                         .frame(height: 55)
                         .frame(maxWidth: .infinity)
-                        .background(animate ? Color.red : Color.accentColor)
+                        .background(animate ? SecondAccentColor : Color.accentColor)
                         .cornerRadius(10)                    
                 })
                 .padding(.horizontal, animate ? 30 : 50)
                 .shadow(
-                    color: animate ? Color.red.opacity(0.7) : Color.accentColor.opacity(0.7),
+                    color: animate ? SecondAccentColor.opacity(0.7) : Color.accentColor.opacity(0.7),
                     radius: animate ? 30 : 10,
                     x: 0,
                     y: animate ? 30: 10)
+                .scaleEffect(animate ? 1.1 : 1.0)
+                .offset(y: animate ? -7 : 0)
             }
             .multilineTextAlignment(.center)
             .padding(40)
